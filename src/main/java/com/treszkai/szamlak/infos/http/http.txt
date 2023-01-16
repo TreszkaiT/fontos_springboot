@@ -24,8 +24,46 @@ HTTP-message:
             HTTP methods
 
 Szerverek fajtái:
-    - Stateless:  nem tárolják a Request-ek információit
+    - Stateless:  nem tárolják a Request-ek információit  = HTTP Protocol is ilyen
                   nem függnek a korábbi Requestektől sem
                   több szervert is használhatnak
-    - Sateful:  tárolják a korábbi Requesteket
-                mindig ugyanannak a szervernek kell kiszolgálnia
+    - Stateful:  tárolják a korábbi Requesteket
+                 mindig ugyanannak a szervernek kell kiszolgálnia
+
+HTTP Status Codes:
+    1. Informational responses  (100-199)
+    2. Successful    responses  (200-299)   = ok volt
+    3. Redirection   responses  (300-399)   = nem itt van, menj máshová, megmutatom hová
+    4. Client error  responses  (400-499)   = ezt nem ide kellett volna, v. nem így kellett volna
+    5. Server error  responses  (500-599)   = szerver rontott el valamit
+
+    Példák:
+    200 Ok                      400 Bad request
+    201 Created                 401 Unauthorized
+    202 Accepted                403 Forbidden
+    204 No content              404 Not found
+                                406 Not acceptable
+    300 Multiple choice
+    304 Not modified            500 Internal server error
+                                502 Bad gateway
+                                503 Service unavailable
+                                504 Gateway timeout
+
+HTTP Methods:
+    ha Client ---> Server felé kéréseket küldünk
+
+    GET:    infókat kérünk el a szervertől          --- itt minden adat URL-ben megy, BODY-ban NEM
+    POST:   új infókat adunk a szervernek           --- innentől minden BODY-ban megy
+    PUT:    = update, ha változtatni akarunk a szerveren lévő egy adaton
+    DELETE:
+    PATCH:  ha csak egy adott részét akarom módosítani
+
+    minden szövegként közlekedik, még a bináris fájlok is
+    bármi betehető plussz infóként
+
+    HTTP protocol nem védett, csak a HTTPS
+
+    Különböző szerverek másképp várják a paramétereket:
+        PHP és java szerverek máshogy
+        ha pl. Objektumot akarok GET request-ként továbbítani, akkor az másképp néz ki
+
