@@ -1,0 +1,81 @@
+Gradle                |           Maven
+==================================================
+syntax                            xml syntax
+less support                      more support
+faster compile (cache)            slower compile (No cache)
+java, c, c++, groovy              Scala, c#, ruby
+dont need install                 Needs install
+
+Phases:
+===================================================
+validate: ensures the Maven project is correct
+compile: transforms Java source code into bytecode
+test: executes tests to verify application functionality
+
+
+============================ CLEAN =====================
+mvn clean
+gradlew clean
+- deletes target
+
+============================ COMPILE ============================
+mvn compiler:compile
+gradlew compileJava
+- compiles java classes
+
+mvn compiler:testCompile
+gradlew compileTestJava
+- compiles java test classes only
+
+============================ BUILD ============================
+A Building can (and usually does) involve several steps,
+such as pre-processing, compiling, linking, converting
+data files, running automated tests, packaging, etc.
+
+package will compile your code and also package it. For
+example, if your pom says the project is a jar, it will
+create a jar for you when you package it and put it
+somewhere in the target directory (by default).
+
+mvn package
+gradlew build
+
+============================ INSTALL ============================
+install will compile and package, but it will also put
+the package in your local repository. This will make
+it so other projects can refer to it and grab it from
+your local repository.
+
+mvn install
+gradlew install
+!!! apply plugin: 'maven' !!!!
+
+============================ DEPENDENCY TREE ============================
+mvn dependency:tree
+gradlew dependencies
+
+============================ DEPLOY ============================
+Builds app and deploys to remote repository. needs config.
+mvn deploy
+gradle publishToMavenLocal
+
+============================= VALIDATE =========================
+Validate: This step validates if the project structure
+is correct. For example – It checks if all the
+dependencies have been downloaded and are available
+in the local repository.
+
+mvn validate
+
+============================= TEST =========================
+mvn test
+gradlew test
+
+============================= SITE =========================
+print a site for the project (documentation,
+test results etc.)
+
+mvn site:site
+gradlew javaDoc
+
+NEM UGYANAZ !!!!

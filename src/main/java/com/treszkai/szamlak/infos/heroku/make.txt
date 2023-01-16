@@ -1,0 +1,38 @@
+CLI = Command Line Interface  (parancsokkal működik)
+
+I. Login Heroku (heroku.com)
+
+II. Upload project into Git
+    - create git repository in online
+    - git status      // in project directory
+    - git clone http://... .git
+    - copy project in this directory
+    - .gitignore ->
+                    .idea/**
+                    .mvn/**
+                    target/**
+    - git status
+    - git add.
+    - git status
+    - git commit -m "init commit"
+    - git push origin master(main)
+
+III. Create heroku server
+    - heroku create
+            email: ....
+            password: ...
+
+            ok
+            https://.... .com            ||  https://git... .git
+             url of created server            heroku git repository
+    - git push heroku main          // upload project into heroku's git repo
+        if Open JDK 1.8 error -> system.properties -> java.runtime.version = 17
+
+        git status
+        git add.
+        git status
+        git commmit -m "JDK 17"
+        git push origin main
+        git push heroku main
+
+        then ok  --> we get an URL, this is the project url.. --> copy into browser, and write Endpoints after this url and Works ok

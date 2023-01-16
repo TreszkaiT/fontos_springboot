@@ -1,0 +1,53 @@
+1. Editor/File Encoding --> UTF-8   // utf-8 encoding everywhere
+2. File/Settings  --> file encoding (UTF8)
+
+3. Appearence & Behavior/System Settings  --> Default project directory
+
+4. ALT + Ins  --> getter and Setter  --> Setter template / Builder      // give .this in every Setter
+
+5. Database / Data someproperties  / Schema / testDB click checkbox  --> then refresh icon      // DB hozzáadása után be is kell azt tölteni
+
+Open Github project:
+New/File/ProjectFromVersionControl... --> Github/repositoryes
+
+Ctrl + Shift + A                    // Open and search Shortcuts
+
+Shift + Shift                       // Search everywhere
+
+Orders:
+1. Alt + Enter                      // import class when see red underline class name in code
+2. SHIFT + Insert                   // Getter Setter Constructor add Pojo
+3. CTRL + Space                     // kódkiegészítés, lehetőségek felajánlása
+4. ALT + J                          // Select next match, and next...
+5. CTRL + D                         // Duplicate line
+6. CTRL + X                         // Delete line
+7- CTRL + /                         // Line comment  //
+8. CTRL + Shift + /                 // block comment /*...*/
+9. Ctrl + Alt + L                   // formatting code  (from classpath works all file)
+10.Ctrl + Alt + O                   // Delete unused file Imports from the head of file (Optimalize)
+11.Shift + F6                       // Refactoring (rewrite name)
+12. CTRL + Shift + Backspace        // Jump back to the last edited file
+
+3. SHIFT + 2 Click                  // Search class name or command
+4. CTRL + F12                       // Search methods, variables name
+
+1. CTRL + SHIFT + U                 // uppercase / Lowercase
+
+Debug:
+1. Shift + F9       // put debug point in code
+2. ALT + F8         // show debug panel where I can write own code
+    F8              // Step Forward debug
+    Enter           // Write the results
+
+Generate diagramm:
+1. If Entity-s complete
+2. Database fül/right click/Diagrams/Show visualization
+
+Before git commit:
+Maven fül/clean and install click (with CTLR) / Run maven build button / Reload All Maven Project button
+
+Local History use:
+Right click on file / Local History / Show History    // works on classpath, and in file too
+
+Two panel view:
+Right click in fül / Split Right

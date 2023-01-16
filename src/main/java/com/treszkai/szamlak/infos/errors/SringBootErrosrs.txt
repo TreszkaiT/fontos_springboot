@@ -1,0 +1,7 @@
+Spring Boot hibák:
+Hibernate throws MultipleBagFetchException - cannot simultaneously fetch multiple bags
+gond:
+fetch = FetchType.EAGER,
+
+megoldás: felső törlése Entity-ről, és helyette beírni ezt:
+LazyCollection(LazyCollectionOption.FALSE)

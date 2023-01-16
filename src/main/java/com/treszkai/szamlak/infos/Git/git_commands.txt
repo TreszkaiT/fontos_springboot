@@ -1,0 +1,124 @@
+SVN : CVCS = Centralized Version Control System (közontosított)
+Net needed from commit
+
+git : DVCS = Distributed Version Control System (megosztott)
+Local Repo -- Remote Repository
+not need Net from commit
+
+Commands:
+git init
+
+git clone https://.... .git     ~~  git pull
+
+Working Directory  ||  Staging Area             ||  Local Repository  ||  Remote Repository
+
+      <---- git clone https://... .git
+ ---->
+   git add.         ||  git commit -m "Feat:"   ||  git push origin master
+
+
+Git Branches:  learngitbranching.js.org
+git branch "branch_name"   // create new branch
+git branch                  // list branches list
+git checkout -b test    // create test2 branche and change another branch
+git merge "branch name whitch we want to insert into this actual branch"
+git rebase "branch name"   // like merge
+
+
+Git usage, push example:
+git status
+git add.
+git status
+git commit -m "init commit"
+git push origin master(main)
+
+//************************************************//
+// Git Elmélet
+//************************************************//
+- Local Version Controller System:          Ctrl+V és Ctrl+V
+- Centralized Version Controller System:    CVS...egy helyi szerveren tárolja
+- Distributed Version Controller System:    DVS...minden fájl minden korábbi verziója megvan minden gépen  (Distributed=megosztott)
+
+GIT:
+    - adat = mini file system snapshot-jai, pillanatképei
+    - amit nem változtatunk, azt a fájlt csak linkeli az előző snapshot-ból
+    - amin változtatunk, csak azt menti el
+GIT Integritása:
+    - mindennek van checksum-ja --> sha-1 hash /40 karakter hosszú/
+    - így nem tudunk modosłtani egy fájlt a nélkül, hogy a GIT ne tudna róla
+    - ez a mappa v. fájl tartalmán alapszik
+GIT Állapotok:
+    - Modified  : módosítottam a fájlon
+    - Stayed    : új verzióját szeretném kommitolni
+    - Commit    : eltárolom a lokális adatbázisba (Repository)
+GIT Felépítése.
+
+                Workspace       Staging         Local Repository        ||      Remote repository
+                               (Színpad)
+Initialize          <----------------------------------- git init
+                    <----------------------------------------------------------------- git clone <URL _of_remote_repository>
+
+Update              <----------------------------------------------------------------- git pull
+                                                            <------------------------- git fetch
+
+Changes             --------------->  git add
+                                    ------------------> git commit
+                                                        ------------------------------> git push
+
+Revert              <---------------------------------- git checkout head
+(visszaáll)         <-------------- git checkout
+
+Diff                ----------------------------------- git diff                (fájlon mit változtatok)
+
+GIT parancsok:
+
+    - git init
+    - git add
+    - git commit
+    - git clone
+    - git push
+    - git pull
+    - git status
+    - git remote add
+    - git diff
+    - git log
+    - git branch  -- kilistázza a branch neveket
+    - git branch "új_branch_neve" branch létrehozása
+    - git merge "annak_a_branchnek_a_neve_amit_bele_szeretnénk_tenni_abba_amibe_épp_állunk"
+    - git rebase "branche_name"
+
+GIT Branching (elágaztatás)
+    - Main line (főág) -ról leágaztatunk, és ott fejlesztünk
+    - Commitoláskor a név,email,message és a pointer az előző commitra kerül bele, egy snapshot-ba
+    - Branch: (ág)
+                - egy pointer, mely a Commitra mutat
+                - master: az alap Branch neve
+    - Létrehozása:
+                - git branch "új_branch_neve"       = létrehozza a branchet
+                - git branch                        = így kilistázza a branch neveket
+    - Merging: (összeolvad)  ha két branchet össze akarunk olvasztani
+                - Fast-forward művelet: ha nincs ütközés
+                - Conflicts: ha van ütközés
+                - git merge "annak_a_branchnek_a_neve_amit_bele_szeretnénk_tenni_abba_amibe_épp_állunk"
+    - Rebasing:
+                - 2 branch-et ez a technika is összeolvasztja
+                - ekkor az összes Commiton végigmenve újrajátszunk azon a branchen, amin szeretnénk rebaselni
+                - git rebase "branche_name"
+                                    <-- C4
+                C0  <-- C1 <-- C2
+                                    <-- C3 <-- C4
+                                        * master pointer
+                - learnbranching.js.org
+
+    - git checkout: branch-ben navigálhatunk, azaz a Head nevű mutatót mozgathatjuk
+    - git checkout -b test2     : ekkor létrehozza a test2 nevű branchet, és a mutatót is ráteszi
+
+    - Merge request : mások felé is jelzi, hogy nézze át az én módosításaimat, hogy jó-e
+
+
+                                branch              rebase = merge
+             commit             -->   C3        -->
+    Commit 0.  -->  C1  --> C2  -->   C4        --> C5
+              push                   pointer            - fast-forward
+                                     checkout           - conflicts
+                                                        - merge request

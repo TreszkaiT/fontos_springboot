@@ -1,0 +1,5 @@
+1 Equals --> pontosan egyeznie kell vele    searchByName("alma");
+  Like   --> nem kell pontosan egyeznie
+        @Query("SELECT u.username FROM User u WHERE u.username LIKE CONCAT('%',:username,'%')")
+        List<String> findUsersWithPartOfName(@Param("username") String username);
+
