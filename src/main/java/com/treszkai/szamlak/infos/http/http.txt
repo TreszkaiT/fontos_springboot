@@ -1,0 +1,31 @@
+Kliens-Szerver architectúra
+(Host-Server)
+
+előnyök: minden adat egy helyen van
+hátrány: kliens kiszolgáltatott a vírusoknak
+
+        Request
+        ------->
+Kliens          Server
+        <-------
+        Response
+
+
+HTTP-message:
+    -   Request-Response alapon működik a HTTP message
+    -   Response:
+            Status Code : 200 Success
+            Headers     : Content type: text
+            Body        : Data
+
+    -   Request:
+            URL
+            Headers
+            HTTP methods
+
+Szerverek fajtái:
+    - Stateless:  nem tárolják a Request-ek információit
+                  nem függnek a korábbi Requestektől sem
+                  több szervert is használhatnak
+    - Sateful:  tárolják a korábbi Requesteket
+                mindig ugyanannak a szervernek kell kiszolgálnia
