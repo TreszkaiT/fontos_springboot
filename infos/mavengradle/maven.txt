@@ -1,0 +1,84 @@
+MAVEN -- Project Managelő eszköz
+
+Library-kat automatizálja
+
+POM : Project Object Model-en alapul
+    - még dokumentációt is generál neki
+    - a .pom fájlban lesz az összes függősége a projectnek
+    - a Central Repository System-ben van minden repository
+    - kiterjeszthető = saját plugin-eket rakhatunk bele
+
+POM:
+    - egy .xml fájl
+    - függőségeket tehetünk bele
+    - goal és plugin hozzáadása
+        <goals>
+            <goal>process-asciidoc</goal>
+        </goals>
+
+		<plugins>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.8</version>
+			</plugin>
+		</plugins>
+
+Super POM:
+    - Maven default POM-ja. Mindent innen merít
+
+Effective POM:
+    - Super POM + saját változtatások a projekt végén
+
+Plugin = (Osztály)
+    - egy vagy több goal összessége
+
+Goal = (Metódus) --gól, cél
+
+Lifecycle:
+    - egy életciklus fázisbon belül több plugin és goal is lefuthat és a goal-ok sorrendjét így határozzuk meg
+
+    1. validate:    megnézi, h. a projectel minden rendben van-e / dependency-k, stb.
+    2. compile:     kódunkat lefordítja
+    3. test:        unit teszteket futtatja
+    4. package:     ha itt futtatjuk a Lifecyclet, akkor az előtte lévő összes lefut, és a goal is.
+    5. integration test:    többi teszt ezeket futtatja
+    6. verify:      valid-e a package
+    7. install:     install the package file into the Local Maven Repository
+    8. deploy:      deploys the package file into the Remote server or repository (ha be van álltva a Mavennek egy távoli repositroy kapcsolat)
+
+Creating:
+     Single maven project:
+        - 1 applikáció 1db. maven modulból épül fel
+        - olyan, mint egy template... pl webes appnál ez lesz a mappaszerkezet
+
+        mvn archetype:generate
+            -DgroupId=epam.nye              // csoport Id
+            -DartifactId=test               // project Id
+            -DarchetypeArtifactId=maven-archetype-quickstart
+            -DinteractiveMode=false
+
+    Multi-Maven Module Project:
+        - 1 applikáció több maven modulból épül fel
+
+        In the Root Project:
+        <modules>
+            <module>library</module>
+            <module>application</module>
+        </modules>
+
+        In Librarys:
+        <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>3.0.0</version>
+            <relativePath/> <!-- lookup parent from repository -->
+        </parent>
+
+pom.xml:
+
+    Bármilyen verziószám kiemelhető ide, és később csak itt kell módosítani, lentebb már nem:
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
